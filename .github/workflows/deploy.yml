@@ -30,7 +30,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/cloudpulse/app
-            docker stop cloudpulse-container || true
-            docker rm cloudpulse-container || true
+            docker stop $(docker ps -q) || true
+            docker rm $(docker ps -aq) || true
             docker build -t cloudpulse-app .
             docker run -d --name cloudpulse-container -p 5000:5000 cloudpulse-app
