@@ -23,9 +23,9 @@ jobs:
       - name: Deploy on EC2
         run: |
           ssh -i ~/.ssh/cloudpulse_key ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-            cd ~/cloudpulse
+            cd ~/cloudpulse-devops-platform
             git pull origin main
             docker rm -f cloudpulse-container || true
             docker build -t cloudpulse-app .
-            docker run -d --name cloudpulse-container -p 5000:5000 cloudpulse-app
+            docker run -d --name cloudpulse-container -p 80:5000 cloudpulse-app
           EOF
