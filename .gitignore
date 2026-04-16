@@ -1,4 +1,15 @@
+#Terraform 
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+
+#python 
 venv/
 __pycache__/
 *.pyc
 .env 
+
+# OS
+.DS_Store
