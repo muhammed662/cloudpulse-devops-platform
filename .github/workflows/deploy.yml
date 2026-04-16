@@ -1,31 +1,11 @@
-name: Deploy CloudPulse to EC2
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/cloudpulse_key
-          chmod 600 ~/.ssh/cloudpulse_key
-          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
-
       - name: Deploy on EC2
         run: |
           ssh -i ~/.ssh/cloudpulse_key ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-            cd ~/cloudpulse-devops-platform
+            sudo chown -R ubuntu:ubuntu /home/ubuntu/cloudpulse-devops-platform
+            git config --global --add safe.directory /home/ubuntu/cloudpulse-devops-platform
+            cd /home/ubuntu/cloudpulse-devops-platform
             git pull origin main
             docker rm -f cloudpulse-container || true
-            docker build -t cloudpulse-app .
+            docker build --no-cache -t cloudpulse-app .
             docker run -d --name cloudpulse-container -p 80:5000 cloudpulse-app
           EOF
