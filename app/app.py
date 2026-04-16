@@ -27,7 +27,7 @@ def home():
     </head>
     <body>
         <h1>🚀 CloudPulse</h1>
-        <p>CI/CD Pipeline is Working Successfully</p>
+        <p>CloudPulse CI/CD Auto Deployment is Working 🚀</p>
     </body>
     </html>
     """
