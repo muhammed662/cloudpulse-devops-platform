@@ -27,7 +27,7 @@ def home():
     </head>
     <body>
         <h1>🚀 CloudPulse</h1>
-        <p>CloudPulse is the Future of Devops 🚀</p>
+        <p>CloudPulse is working with K8 and Gitops 🚀</p>
     </body>
     </html>
     """
