@@ -18,3 +18,6 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
+          env: 
+            - name: APP_VERSION
+              value: "v3"    
