@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: cloudpulse
-          image: cloudpulse-app:latest
-          imagePullPolicy: Never
+          image: muhammed662/cloudpulse-app:v1
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
-          env: 
+          env:
             - name: APP_VERSION
-              value: "v3"    
+              value: "v1"
