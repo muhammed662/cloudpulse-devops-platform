@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "CloudPulse CI/CD is working 🚀"
+    return "<p>CloudPulse CI/CD Auto Deployment is Working 🚀</p>"
 
 @app.route('/health')
 def health():
