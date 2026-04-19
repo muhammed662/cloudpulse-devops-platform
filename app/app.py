@@ -1,36 +1,16 @@
 from flask import Flask
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 @app.route("/")
 def home():
-    return """
-    <html>
-    <head>
-        <title>CloudPulse</title>
-        <style>
-            body {
-                background-color: #0f172a;
-                color: white;
-                text-align: center;
-                font-family: Arial;
-                padding-top: 100px;
-            }
-            h1 {
-                font-size: 50px;
-            }
-            p {
-                font-size: 20px;
-                color: #38bdf8;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>🚀 CloudPulse</h1>
-        <p>CloudPulse is the Future of Devops 🚀</p>
-    </body>
-    </html>
-    """
+    return "CloudPulse CI/CD is working 🚀"
+
+@app.route("/health")
+def health():
+    return {"status": "ok"}, 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
