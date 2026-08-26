@@ -104,17 +104,6 @@ Developer → GitHub → GitHub Actions → Docker Hub → ArgoCD → Kubernetes
 
 ---
 
-## 📸 Screenshots
-
-> Add the following screenshots here:
-
-* Kubernetes pods running (`kubectl get pods -A`)
-* ArgoCD dashboard (Synced & Healthy)
-* Grafana dashboard
-* Application running in browser
-
----
-
 ## ⚠️ Challenges Faced
 
 * Resource limitations on EC2 affecting monitoring stack
